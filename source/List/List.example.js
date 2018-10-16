@@ -223,7 +223,9 @@ export default class ListExample extends React.PureComponent {
         case 100:
           additionalContent = (
             <div>
-              It is large-sized.<br />It has a 3rd row.
+              It is large-sized.
+              <br />
+              It has a 3rd row.
             </div>
           );
           break;
@@ -245,7 +247,10 @@ export default class ListExample extends React.PureComponent {
           {additionalContent}
         </div>
         {useDynamicRowHeight && (
-          <span className={styles.height}>{datum.size}px</span>
+          <span className={styles.height}>
+            {datum.size}
+            px
+          </span>
         )}
       </div>
     );

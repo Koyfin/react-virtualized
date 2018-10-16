@@ -61,10 +61,10 @@ export default class GridExample extends React.PureComponent {
         </ContentBoxParagraph>
 
         <ContentBoxParagraph>
-          This example shows two <code>Grid</code>
-          s and one <code>List</code> configured to mimic a spreadsheet with a
-          fixed header and first column. It also shows how a scroll callback can
-          be used to control UI properties such as background color.
+          This example shows two <code>Grid</code>s and one <code>List</code>{' '}
+          configured to mimic a spreadsheet with a fixed header and first
+          column. It also shows how a scroll callback can be used to control UI
+          properties such as background color.
         </ContentBoxParagraph>
 
         <ScrollSync>
@@ -236,8 +236,12 @@ export default class GridExample extends React.PureComponent {
   _renderLeftSideCell({columnIndex, key, rowIndex, style}) {
     const rowClass =
       rowIndex % 2 === 0
-        ? columnIndex % 2 === 0 ? styles.evenRow : styles.oddRow
-        : columnIndex % 2 !== 0 ? styles.evenRow : styles.oddRow;
+        ? columnIndex % 2 === 0
+          ? styles.evenRow
+          : styles.oddRow
+        : columnIndex % 2 !== 0
+          ? styles.evenRow
+          : styles.oddRow;
     const classNames = cn(rowClass, styles.cell);
 
     return (

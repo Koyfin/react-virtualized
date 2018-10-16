@@ -14,7 +14,8 @@ describe('Collection', () => {
   function defaultCellRenderer({index, key, style}) {
     return (
       <div className="cell" key={key} style={style}>
-        cell:{index}
+        cell:
+        {index}
       </div>
     );
   }
