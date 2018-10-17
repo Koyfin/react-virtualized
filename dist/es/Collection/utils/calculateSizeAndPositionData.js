@@ -2,8 +2,8 @@ import SectionManager from '../SectionManager';
 
 export default function calculateSizeAndPositionData(_ref) {
   var cellCount = _ref.cellCount,
-    cellSizeAndPositionGetter = _ref.cellSizeAndPositionGetter,
-    sectionSize = _ref.sectionSize;
+      cellSizeAndPositionGetter = _ref.cellSizeAndPositionGetter,
+      sectionSize = _ref.sectionSize;
 
   var cellMetadata = [];
   var sectionManager = new SectionManager(sectionSize);
@@ -11,30 +11,10 @@ export default function calculateSizeAndPositionData(_ref) {
   var width = 0;
 
   for (var index = 0; index < cellCount; index++) {
-    var cellMetadatum = cellSizeAndPositionGetter({index: index});
+    var cellMetadatum = cellSizeAndPositionGetter({ index: index });
 
-    if (
-      cellMetadatum.height == null ||
-      isNaN(cellMetadatum.height) ||
-      cellMetadatum.width == null ||
-      isNaN(cellMetadatum.width) ||
-      cellMetadatum.x == null ||
-      isNaN(cellMetadatum.x) ||
-      cellMetadatum.y == null ||
-      isNaN(cellMetadatum.y)
-    ) {
-      throw Error(
-        'Invalid metadata returned for cell ' +
-          index +
-          ':\n        x:' +
-          cellMetadatum.x +
-          ', y:' +
-          cellMetadatum.y +
-          ', width:' +
-          cellMetadatum.width +
-          ', height:' +
-          cellMetadatum.height,
-      );
+    if (cellMetadatum.height == null || isNaN(cellMetadatum.height) || cellMetadatum.width == null || isNaN(cellMetadatum.width) || cellMetadatum.x == null || isNaN(cellMetadatum.x) || cellMetadatum.y == null || isNaN(cellMetadatum.y)) {
+      throw Error('Invalid metadata returned for cell ' + index + ':\n        x:' + cellMetadatum.x + ', y:' + cellMetadatum.y + ', width:' + cellMetadatum.width + ', height:' + cellMetadatum.height);
     }
 
     height = Math.max(height, cellMetadatum.y + cellMetadatum.height);
@@ -43,7 +23,7 @@ export default function calculateSizeAndPositionData(_ref) {
     cellMetadata[index] = cellMetadatum;
     sectionManager.registerCell({
       cellMetadatum: cellMetadatum,
-      index: index,
+      index: index
     });
   }
 
@@ -51,6 +31,6 @@ export default function calculateSizeAndPositionData(_ref) {
     cellMetadata: cellMetadata,
     height: height,
     sectionManager: sectionManager,
-    width: width,
+    width: width
   };
 }

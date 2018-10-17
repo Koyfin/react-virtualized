@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.default = createCellPositioner;
 
@@ -9,10 +9,10 @@ var _Masonry = require('./Masonry');
 
 function createCellPositioner(_ref) {
   var cellMeasurerCache = _ref.cellMeasurerCache,
-    columnCount = _ref.columnCount,
-    columnWidth = _ref.columnWidth,
-    _ref$spacer = _ref.spacer,
-    spacer = _ref$spacer === undefined ? 0 : _ref$spacer;
+      columnCount = _ref.columnCount,
+      columnWidth = _ref.columnWidth,
+      _ref$spacer = _ref.spacer,
+      spacer = _ref$spacer === undefined ? 0 : _ref$spacer;
 
   var columnHeights = void 0;
 
@@ -30,12 +30,11 @@ function createCellPositioner(_ref) {
     var left = columnIndex * (columnWidth + spacer);
     var top = columnHeights[columnIndex] || 0;
 
-    columnHeights[columnIndex] =
-      top + cellMeasurerCache.getHeight(index) + spacer;
+    columnHeights[columnIndex] = top + cellMeasurerCache.getHeight(index) + spacer;
 
     return {
       left: left,
-      top: top,
+      top: top
     };
   }
 

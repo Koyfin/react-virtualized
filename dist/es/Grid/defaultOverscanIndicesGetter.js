@@ -1,3 +1,5 @@
+
+
 export var SCROLL_DIRECTION_BACKWARD = -1;
 
 export var SCROLL_DIRECTION_FORWARD = 1;
@@ -12,25 +14,22 @@ export var SCROLL_DIRECTION_VERTICAL = 'vertical';
 
 export default function defaultOverscanIndicesGetter(_ref) {
   var cellCount = _ref.cellCount,
-    overscanCellsCount = _ref.overscanCellsCount,
-    scrollDirection = _ref.scrollDirection,
-    startIndex = _ref.startIndex,
-    stopIndex = _ref.stopIndex;
+      overscanCellsCount = _ref.overscanCellsCount,
+      scrollDirection = _ref.scrollDirection,
+      startIndex = _ref.startIndex,
+      stopIndex = _ref.stopIndex;
 
   if (scrollDirection === SCROLL_DIRECTION_FORWARD) {
     return {
       overscanStartIndex: Math.max(0, startIndex),
-      overscanStopIndex: Math.min(
-        cellCount - 1,
-        stopIndex + overscanCellsCount,
-      ),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex + overscanCellsCount)
     };
   } else {
     return {
       overscanStartIndex: Math.max(0, startIndex - overscanCellsCount),
-      overscanStopIndex: Math.min(cellCount - 1, stopIndex),
+      overscanStopIndex: Math.min(cellCount - 1, stopIndex)
     };
   }
 }
-import {bpfrpt_proptype_OverscanIndicesGetterParams} from './types';
-import {bpfrpt_proptype_OverscanIndices} from './types';
+import { bpfrpt_proptype_OverscanIndicesGetterParams } from './types';
+import { bpfrpt_proptype_OverscanIndices } from './types';

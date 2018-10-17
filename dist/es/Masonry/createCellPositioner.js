@@ -1,9 +1,11 @@
+
+
 export default function createCellPositioner(_ref) {
   var cellMeasurerCache = _ref.cellMeasurerCache,
-    columnCount = _ref.columnCount,
-    columnWidth = _ref.columnWidth,
-    _ref$spacer = _ref.spacer,
-    spacer = _ref$spacer === undefined ? 0 : _ref$spacer;
+      columnCount = _ref.columnCount,
+      columnWidth = _ref.columnWidth,
+      _ref$spacer = _ref.spacer,
+      spacer = _ref$spacer === undefined ? 0 : _ref$spacer;
 
   var columnHeights = void 0;
 
@@ -21,12 +23,11 @@ export default function createCellPositioner(_ref) {
     var left = columnIndex * (columnWidth + spacer);
     var top = columnHeights[columnIndex] || 0;
 
-    columnHeights[columnIndex] =
-      top + cellMeasurerCache.getHeight(index) + spacer;
+    columnHeights[columnIndex] = top + cellMeasurerCache.getHeight(index) + spacer;
 
     return {
       left: left,
-      top: top,
+      top: top
     };
   }
 
@@ -51,5 +52,5 @@ export default function createCellPositioner(_ref) {
 
   return cellPositioner;
 }
-import {bpfrpt_proptype_CellMeasurerCache} from './Masonry';
-import {bpfrpt_proptype_Positioner} from './Masonry';
+import { bpfrpt_proptype_CellMeasurerCache } from './Masonry';
+import { bpfrpt_proptype_Positioner } from './Masonry';

@@ -8,20 +8,17 @@
  */
 export default function initCellMetadata(_ref) {
   var cellCount = _ref.cellCount,
-    size = _ref.size;
+      size = _ref.size;
 
-  var sizeGetter =
-    typeof size === 'function'
-      ? size
-      : function() {
-          return size;
-        };
+  var sizeGetter = typeof size === 'function' ? size : function () {
+    return size;
+  };
 
   var cellMetadata = [];
   var offset = 0;
 
   for (var i = 0; i < cellCount; i++) {
-    var _size = sizeGetter({index: i});
+    var _size = sizeGetter({ index: i });
 
     if (_size == null || isNaN(_size)) {
       throw Error('Invalid size returned for cell ' + i + ' of value ' + _size);
@@ -29,7 +26,7 @@ export default function initCellMetadata(_ref) {
 
     cellMetadata[i] = {
       size: _size,
-      offset: offset,
+      offset: offset
     };
 
     offset += _size;

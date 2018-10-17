@@ -1,7 +1,5 @@
-import {
-  requestAnimationTimeout,
-  cancelAnimationTimeout,
-} from '../../utils/requestAnimationTimeout';
+import { requestAnimationTimeout, cancelAnimationTimeout } from '../../utils/requestAnimationTimeout';
+
 
 var mountedInstances = [];
 var originalBodyPointerEvents = null;
@@ -21,7 +19,7 @@ function enablePointerEventsIfDisabled() {
 
 function enablePointerEventsAfterDelayCallback() {
   enablePointerEventsIfDisabled();
-  mountedInstances.forEach(function(instance) {
+  mountedInstances.forEach(function (instance) {
     return instance.__resetIsScrolling();
   });
 }
@@ -32,31 +30,21 @@ function enablePointerEventsAfterDelay() {
   }
 
   var maximumTimeout = 0;
-  mountedInstances.forEach(function(instance) {
-    maximumTimeout = Math.max(
-      maximumTimeout,
-      instance.props.scrollingResetTimeInterval,
-    );
+  mountedInstances.forEach(function (instance) {
+    maximumTimeout = Math.max(maximumTimeout, instance.props.scrollingResetTimeInterval);
   });
 
-  disablePointerEventsTimeoutId = requestAnimationTimeout(
-    enablePointerEventsAfterDelayCallback,
-    maximumTimeout,
-  );
+  disablePointerEventsTimeoutId = requestAnimationTimeout(enablePointerEventsAfterDelayCallback, maximumTimeout);
 }
 
 function onScrollWindow(event) {
-  if (
-    event.currentTarget === window &&
-    originalBodyPointerEvents == null &&
-    document.body
-  ) {
+  if (event.currentTarget === window && originalBodyPointerEvents == null && document.body) {
     originalBodyPointerEvents = document.body.style.pointerEvents;
 
     document.body.style.pointerEvents = 'none';
   }
   enablePointerEventsAfterDelay();
-  mountedInstances.forEach(function(instance) {
+  mountedInstances.forEach(function (instance) {
     if (instance.props.scrollElement === event.currentTarget) {
       instance.__handleWindowScrollEvent();
     }
@@ -64,18 +52,16 @@ function onScrollWindow(event) {
 }
 
 export function registerScrollListener(component, element) {
-  if (
-    !mountedInstances.some(function(instance) {
-      return instance.props.scrollElement === element;
-    })
-  ) {
+  if (!mountedInstances.some(function (instance) {
+    return instance.props.scrollElement === element;
+  })) {
     element.addEventListener('scroll', onScrollWindow);
   }
   mountedInstances.push(component);
 }
 
 export function unregisterScrollListener(component, element) {
-  mountedInstances = mountedInstances.filter(function(instance) {
+  mountedInstances = mountedInstances.filter(function (instance) {
     return instance !== component;
   });
   if (!mountedInstances.length) {
@@ -86,4 +72,4 @@ export function unregisterScrollListener(component, element) {
     }
   }
 }
-import {bpfrpt_proptype_WindowScroller} from '../WindowScroller.js';
+import { bpfrpt_proptype_WindowScroller } from '../WindowScroller.js';

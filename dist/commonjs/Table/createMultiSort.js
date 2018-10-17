@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 
 var _keys = require('babel-runtime/core-js/object/keys');
@@ -10,17 +10,13 @@ var _keys2 = _interopRequireDefault(_keys);
 
 exports.default = createMultiSort;
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {default: obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function createMultiSort(sortCallback) {
-  var _ref =
-      arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-    defaultSortBy = _ref.defaultSortBy,
-    _ref$defaultSortDirec = _ref.defaultSortDirection,
-    defaultSortDirection =
-      _ref$defaultSortDirec === undefined ? {} : _ref$defaultSortDirec;
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      defaultSortBy = _ref.defaultSortBy,
+      _ref$defaultSortDirec = _ref.defaultSortDirection,
+      defaultSortDirection = _ref$defaultSortDirec === undefined ? {} : _ref$defaultSortDirec;
 
   if (!sortCallback) {
     throw Error('Required parameter "sortCallback" not specified');
@@ -29,22 +25,19 @@ function createMultiSort(sortCallback) {
   var sortBy = defaultSortBy || [];
   var sortDirection = {};
 
-  sortBy.forEach(function(dataKey) {
-    sortDirection[dataKey] = defaultSortDirection.hasOwnProperty(dataKey)
-      ? defaultSortDirection[dataKey]
-      : 'ASC';
+  sortBy.forEach(function (dataKey) {
+    sortDirection[dataKey] = defaultSortDirection.hasOwnProperty(dataKey) ? defaultSortDirection[dataKey] : 'ASC';
   });
 
   function sort(_ref2) {
     var defaultSortDirection = _ref2.defaultSortDirection,
-      event = _ref2.event,
-      dataKey = _ref2.sortBy;
+        event = _ref2.event,
+        dataKey = _ref2.sortBy;
 
     if (event.shiftKey) {
       // Shift + click appends a column to existing criteria
       if (sortDirection.hasOwnProperty(dataKey)) {
-        sortDirection[dataKey] =
-          sortDirection[dataKey] === 'ASC' ? 'DESC' : 'ASC';
+        sortDirection[dataKey] = sortDirection[dataKey] === 'ASC' ? 'DESC' : 'ASC';
       } else {
         sortDirection[dataKey] = defaultSortDirection;
         sortBy.push(dataKey);
@@ -63,15 +56,14 @@ function createMultiSort(sortCallback) {
 
       // Clear sortDirection object of all non-selected keys
       var sortDirectionKeys = (0, _keys2.default)(sortDirection);
-      sortDirectionKeys.forEach(function(key) {
+      sortDirectionKeys.forEach(function (key) {
         if (key !== dataKey) delete sortDirection[key];
       });
 
       // If key is already selected, reverse sort direction.
       // Else, set sort direction to default direction.
       if (sortDirection.hasOwnProperty(dataKey)) {
-        sortDirection[dataKey] =
-          sortDirection[dataKey] === 'ASC' ? 'DESC' : 'ASC';
+        sortDirection[dataKey] = sortDirection[dataKey] === 'ASC' ? 'DESC' : 'ASC';
       } else {
         sortDirection[dataKey] = defaultSortDirection;
       }
@@ -80,13 +72,13 @@ function createMultiSort(sortCallback) {
     // Notify application code
     sortCallback({
       sortBy: sortBy,
-      sortDirection: sortDirection,
+      sortDirection: sortDirection
     });
   }
 
   return {
     sort: sort,
     sortBy: sortBy,
-    sortDirection: sortDirection,
+    sortDirection: sortDirection
   };
 }

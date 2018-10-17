@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.CellMeasurerCache = exports.CellMeasurer = undefined;
 
@@ -13,9 +13,7 @@ var _CellMeasurerCache = require('./CellMeasurerCache');
 
 var _CellMeasurerCache2 = _interopRequireDefault(_CellMeasurerCache);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {default: obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _CellMeasurer2.default;
 exports.CellMeasurer = _CellMeasurer2.default;

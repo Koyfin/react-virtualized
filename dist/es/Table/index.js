@@ -10,15 +10,4 @@ import SortIndicator from './SortIndicator';
 import Table from './Table';
 
 export default Table;
-export {
-  createMultiSort,
-  defaultCellDataGetter,
-  defaultCellRenderer,
-  defaultHeaderRowRenderer,
-  defaultHeaderRenderer,
-  defaultRowRenderer,
-  Column,
-  SortDirection,
-  SortIndicator,
-  Table,
-};
+export { createMultiSort, defaultCellDataGetter, defaultCellRenderer, defaultHeaderRowRenderer, defaultHeaderRenderer, defaultRowRenderer, Column, SortDirection, SortIndicator, Table };

@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.default = defaultCellDataGetter;
 
@@ -14,7 +14,7 @@ var _types = require('./types');
  */
 function defaultCellDataGetter(_ref) {
   var dataKey = _ref.dataKey,
-    rowData = _ref.rowData;
+      rowData = _ref.rowData;
 
   if (typeof rowData.get === 'function') {
     return rowData.get(dataKey);

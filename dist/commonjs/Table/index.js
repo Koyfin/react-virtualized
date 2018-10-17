@@ -1,7 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.Table = exports.SortIndicator = exports.SortDirection = exports.Column = exports.defaultRowRenderer = exports.defaultHeaderRenderer = exports.defaultHeaderRowRenderer = exports.defaultCellRenderer = exports.defaultCellDataGetter = exports.createMultiSort = undefined;
 
@@ -19,9 +19,7 @@ var _defaultCellRenderer2 = _interopRequireDefault(_defaultCellRenderer);
 
 var _defaultHeaderRowRenderer = require('./defaultHeaderRowRenderer.js');
 
-var _defaultHeaderRowRenderer2 = _interopRequireDefault(
-  _defaultHeaderRowRenderer,
-);
+var _defaultHeaderRowRenderer2 = _interopRequireDefault(_defaultHeaderRowRenderer);
 
 var _defaultHeaderRenderer = require('./defaultHeaderRenderer');
 
@@ -47,9 +45,7 @@ var _Table = require('./Table');
 
 var _Table2 = _interopRequireDefault(_Table);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {default: obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Table2.default;
 exports.createMultiSort = _createMultiSort2.default;
